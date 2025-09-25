@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Queixa</title>
+</head>
+<body>
+    <h1>Cadastrar Queixa</h1>
+    <form action="/queixas/cadastrar" method="post">
+        <label>Paciente:</label><br>
+        <select name="paciente.id" required>
+            <option value="">Selecione</option>
+            <option th:each="paciente : ${pacientes}" th:value="${paciente.id}" th:text="${paciente.nomeCompleto}"></option>
+        </select><br>
+        <label>Descrição da Queixa:</label><br>
+        <textarea name="descricao" required></textarea><br>
+        <label>Prioridade:</label><br>
+        <select name="prioridade" required>
+            <option value="Alta">Alta</option>
+            <option value="Média">Média</option>
+            <option value="Baixa">Baixa</option>
+        </select><br>
+        <button type="submit">Cadastrar</button>
+    </form>
+    <a href="/queixas">Voltar à lista</a>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Pacientes</title>
+</head>
+<body>
+    <h1>Lista de Pacientes</h1>
+    <a href="/pacientes/cadastrar">Novo Paciente</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome Completo</th>
+                <th>CPF</th>
+                <th>Data de Nascimento</th>
+                <th>Endereço</th>
+                <th>E-mail</th>
+                <th>Convênio</th>
+                <th>Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Exemplo de iteração com Thymeleaf -->
+            <tr th:each="paciente : ${pacientes}">
+                <td th:text="${paciente.nomeCompleto}"></td>
+                <td th:text="${paciente.cpf}"></td>
+                <td th:text="${paciente.dataNascimento}"></td>
+                <td th:text="${paciente.endereco}"></td>
+                <td th:text="${paciente.email}"></td>
+                <td th:text="${paciente.convenio}"></td>
+                <td th:text="${paciente.telefone}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Paciente</title>
+</head>
+<body>
+    <h1>Cadastrar Paciente</h1>
+    <form action="/pacientes/cadastrar" method="post">
+        <label>Nome Completo:</label><br>
+        <input type="text" name="nomeCompleto" required><br>
+        <label>CPF:</label><br>
+        <input type="text" name="cpf" required><br>
+        <label>Data de Nascimento:</label><br>
+        <input type="date" name="dataNascimento" required><br>
+        <label>Endereço:</label><br>
+        <input type="text" name="endereco" required><br>
+        <label>E-mail:</label><br>
+        <input type="email" name="email" required><br>
+        <label>Convênio:</label><br>
+        <input type="text" name="convenio"><br>
+        <label>Telefone:</label><br>
+        <input type="text" name="telefone"><br>
+        <button type="submit">Cadastrar</button>
+    </form>
+    <a href="/pacientes">Voltar à lista</a>
+</body>
+</html>

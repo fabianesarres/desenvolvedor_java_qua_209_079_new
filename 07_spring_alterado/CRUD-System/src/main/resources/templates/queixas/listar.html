@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Queixas</title>
+</head>
+<body>
+    <h1>Lista de Queixas</h1>
+    <a href="/queixas/cadastrar">Nova Queixa</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Paciente</th>
+                <th>Descrição</th>
+                <th>Prioridade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="queixa : ${queixas}">
+                <td th:text="${queixa.paciente.nomeCompleto}"></td>
+                <td th:text="${queixa.descricao}"></td>
+                <td th:text="${queixa.prioridade}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
