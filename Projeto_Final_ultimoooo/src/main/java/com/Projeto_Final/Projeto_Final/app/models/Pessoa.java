@@ -1,59 +1,47 @@
 package com.Projeto_Final.Projeto_Final.app.models;
 
-import java.io.Serializable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
+import jakarta.persistence.*;
+// import lombok.Data;
 
 @Entity
-public class Pessoa implements Serializable {
-    // atributos
-    private static final long serialVersionUID = 1L;
-
+public class Pessoa {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private long idPessoa;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String nome;
-    private String cpf;
-    private String email;
+    private Integer idade;
+    private String descricao;
 
-    // construtor
-    public Pessoa() {
-    }
-    
-
-    // getters e setters
-    public long getIdPessoa() {
-        return this.idPessoa;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdPessoa(long idPessoa) {
-        this.idPessoa = idPessoa;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {
-        return this.nome;
+        return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return this.cpf;
+    public Integer getIdade() {
+        return idade;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setIdade(Integer idade) {
+        this.idade = idade;
     }
 
-    public String getEmail() {
-        return this.email;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }

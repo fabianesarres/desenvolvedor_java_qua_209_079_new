@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Novo Cadastro - Sistema de Pessoas Desaparecidas</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS externo -->
+    <link th:href="@{/css/estilo.css}" rel="stylesheet">
+</head>
+
+<body class="bg-dark d-flex flex-column min-vh-100" data-bs-theme="dark">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg mb-5" style="background-color: #16161d;">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">
+                <img src="images/icone2.png" alt="Ícone">
+                <!-- <img th:src="@{/img/icone.png}" alt="Ícone"> -->
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/}" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link active" th:href="@{/cadastrarUsuario}" href="cadastrar.html">Cadastrar Pessoa Desaparecida</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/listarUsuarios}" href="listar.html">Listar Pessoas Desaparecidas</a></li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/login}" href="login.html" style="background-color: #37a52d;">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Fim da Navbar -->
+
+    <!-- Formulário de Cadastro -->
+    <main class="container flex-grow-1 d-flex justify-content-center align-items-center">
+        <div class="card bg-dark text-light shadow p-4 w-100" style="max-width: 500px;">
+            <h3 class="text-center mb-4">Criar Nova Conta</h3>
+            <form th:action="@{/cadastrarUsuario}" th:object="${usuario}" method="post">
+
+                <div class="mb-3">
+                    <label class="form-label">Nome Completo</label>
+                    <input type="text" class="form-control" th:field="*{nome}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" th:field="*{email}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Telefone</label>
+                    <input type="text" class="form-control" th:field="*{telefone}">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Senha</label>
+                    <input type="password" class="form-control" th:field="*{senha}" required>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </div>
+
+                <p class="text-center mt-3">
+                    Já possui conta? <a th:href="@{/login}" class="text-info"> <a href="login.html">Entrar</a></a>
+                </p>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-3 mt-auto">
+        <div class="container text-center">
+            <p class="text-light mb-0">© 2025 Todos os direitos reservados. Sistema de Cadastro de Pessoas
+                Desaparecidas.</p>
+            <br>
+            <p class="text-light mb-0">Desenvolvido por <a href="https://github.com/FabianeSarres"
+                    class="text-info">Fabiane Sarres</a></p>
+        </div>
+    </footer>
+    <!-- Fim do Footer -->
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
