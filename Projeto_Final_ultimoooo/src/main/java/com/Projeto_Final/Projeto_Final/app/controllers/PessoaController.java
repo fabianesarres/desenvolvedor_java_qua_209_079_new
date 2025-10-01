@@ -20,15 +20,22 @@ public class PessoaController {
         return "index";
     }
 
-    @GetMapping("/cadastro")
-    public String cadastroForm(Model model) {
+
+    @GetMapping("/cadastrarUsuario")
+    public String cadastrarUsuarioForm(Model model) {
         model.addAttribute("pessoa", new Pessoa());
-        return "cadastro";
+        return "cadastrar";
     }
 
-    @PostMapping("/cadastro")
+    @PostMapping("/cadastrarUsuario")
     public String salvar(@ModelAttribute Pessoa pessoa) {
         repository.save(pessoa);
-        return "redirect:/";
+        return "redirect:/listarUsuarios";
+    }
+
+    @GetMapping("/listarUsuarios")
+    public String listarUsuarios(Model model) {
+        model.addAttribute("usuarios", repository.findAll());
+        return "listar";
     }
 }

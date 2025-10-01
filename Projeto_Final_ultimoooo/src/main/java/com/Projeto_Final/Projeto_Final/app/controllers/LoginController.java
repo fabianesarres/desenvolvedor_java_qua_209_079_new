@@ -10,4 +10,9 @@ public class LoginController {
     public String login() {
         return "login"; 
     }
+
+    @GetMapping("/cadastrarUsuario")
+    public String cadastrarUsuario() {
+        return "cadastrarUsuario"; 
+    }
 }
