@@ -8,11 +8,12 @@
 </head>
 
 <body class="bg-dark d-flex flex-column min-vh-100" data-bs-theme="dark">
-     <!-- Navbar -->
+
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg mb-0" style="background-color: #16161d;">
         <div class="container-fluid">
             <a class="navbar-brand" th:href="@{/}">
-                <img th:src="@{/img/icone.png}" alt="Ícone">
+                 <img th:src="@{/img/icone2.png}" alt="Ícone">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -21,9 +22,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" th:href="@{/}">Início</a></li>
-            <li class="nav-item"><a class="nav-link" th:href="@{/cadastrarUsuario}">Cadastrar Pessoa Desaparecida</a></li>
-            <li class="nav-item"><a class="nav-link" th:href="@{/listarUsuarios}">Listar Pessoas Desaparecidas</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/}">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/cadastrarUsuario}">Cadastrar Pessoa Desaparecida</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/listarUsuarios}">Listar Pessoas Desaparecidas</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -35,32 +42,34 @@
     </nav>
     <!-- Fim do Navbar -->
 
-    
+
     <div class="container mt-5">
         <h2>Cadastrar Pessoa Desaparecida</h2>
-        <form th:action="@{/cadastro}" th:object="${pessoa}" method="post" class="mt-3">
+        <form th:action="@{/cadastrarUsuario}" th:object="${usuario}" method="post" class="mt-3">
             <div class="mb-3">
-                <label class="form-label">Nome</label>
-                <input type="text" class="form-control" th:field="*{nome}" required>
+                <label for="nome" class="form-label text-light">Nome</label>
+                <input type="text" th:field="*{nome}" class="form-control" id="nome" required>
             </div>
             <div class="mb-3">
-                <label class="form-label">Idade</label>
-                <input type="number" class="form-control" th:field="*{idade}" required>
+                <label for="idade" class="form-label text-light">Idade</label>
+                <input type="number" th:field="*{idade}" class="form-control" id="idade" required>
             </div>
             <div class="mb-3">
-                <label class="form-label">Descrição</label>
-                <textarea class="form-control" th:field="*{descricao}" rows="3"></textarea>
+                <label for="descricao" class="form-label text-light">Descrição</label>
+                <textarea th:field="*{descricao}" class="form-control" id="descricao" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" class="btn btn-success">Cadastrar</button>
         </form>
     </div>
 
     <!-- Footer -->
     <footer class="bg-dark py-3 mt-auto">
         <div class="container text-center">
-            <p class="text-light mb-0">© 2025 Todos os direitos reservados. Sistema de Cadastro de Pessoas Desaparecidas.</p>
+            <p class="text-light mb-0">© 2025 Todos os direitos reservados. Sistema de Cadastro de Pessoas
+                Desaparecidas.</p>
             <br>
-            <p class="text-light mb-0">Desenvolvido por <a href="https://github.com/FabianeSarres" class="text-info">Fabiane Sarres</a></p>
+            <p class="text-light mb-0">Desenvolvido por <a href="https://github.com/FabianeSarres"
+                    class="text-info">Fabiane Sarres</a></p>
         </div>
     </footer>
     <!-- Fim do Footer -->

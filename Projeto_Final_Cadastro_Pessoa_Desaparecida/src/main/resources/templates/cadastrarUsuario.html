@@ -15,32 +15,44 @@
 
 <body class="bg-dark d-flex flex-column min-vh-100" data-bs-theme="dark">
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg mb-5" style="background-color: #16161d;">
+     <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg mb-0" style="background-color: #16161d;">
         <div class="container-fluid">
             <a class="navbar-brand" th:href="@{/}">
-                <img src="images/icone2.png" alt="Ícone">
-                <!-- <img th:src="@{/img/icone.png}" alt="Ícone"> -->
+                 <img th:src="@{/img/icone2.png}" alt="Ícone">
             </a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/}" href="index.html">Início</a></li>
-                    <li class="nav-item"><a class="nav-link active" th:href="@{/cadastrarUsuario}" href="cadastrar.html">Cadastrar Pessoa Desaparecida</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/listarUsuarios}" href="listar.html">Listar Pessoas Desaparecidas</a></li>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/}">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/cadastrarPessoaDesaparecida}">Cadastrar Pessoa Desaparecida</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/listarUsuarios}">Listar Pessoas Desaparecidas</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/login}" href="login.html" style="background-color: #37a52d;">Login</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/login}" style="background-color: #37a52d;">Login</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- Fim da Navbar -->
+    <!-- Fim do Navbar -->
 
     <!-- Formulário de Cadastro -->
     <main class="container flex-grow-1 d-flex justify-content-center align-items-center">
         <div class="card bg-dark text-light shadow p-4 w-100" style="max-width: 500px;">
             <h3 class="text-center mb-4">Criar Nova Conta</h3>
-            <form th:action="@{/cadastrarUsuario}" th:object="${usuario}" method="post">
+            <form th:action="@{/cadastrarPessoaDesaparecida}" th:object="${usuario}" method="post">
 
                 <div class="mb-3">
                     <label class="form-label">Nome Completo</label>
@@ -48,18 +60,13 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-control" th:field="*{email}" required>
+                    <label class="form-label">Idade</label>
+                    <input type="number" class="form-control" th:field="*{idade}" required>
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Telefone</label>
-                    <input type="text" class="form-control" th:field="*{telefone}">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Senha</label>
-                    <input type="password" class="form-control" th:field="*{senha}" required>
+                    <label class="form-label">Descrição</label>
+                    <textarea class="form-control" th:field="*{descricao}" required></textarea>
                 </div>
 
                 <div class="d-grid">
@@ -67,7 +74,7 @@
                 </div>
 
                 <p class="text-center mt-3">
-                    Já possui conta? <a th:href="@{/login}" class="text-info"> <a href="login.html">Entrar</a></a>
+                    Já possui conta? <a th:href="@{/login}" class="text-info">Entrar</a>
                 </p>
             </form>
         </div>

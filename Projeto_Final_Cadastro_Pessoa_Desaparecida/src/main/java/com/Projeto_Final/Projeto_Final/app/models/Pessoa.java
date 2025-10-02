@@ -1,7 +1,7 @@
 package com.Projeto_Final.Projeto_Final.app.models;
 
 import jakarta.persistence.*;
-// import lombok.Data;
+
 
 @Entity
 public class Pessoa {

@@ -15,27 +15,30 @@ public class PessoaController {
         this.repository = repository;
     }
 
-    @GetMapping("/")
-    public String index() {
-        return "index";
+    
+    @GetMapping("/cadastrarPessoaDesaparecida")
+    public String salvar(Model model) {
+        model.addAttribute("usuario", new Pessoa());
+        return "cadastrarPessoaDesaparecida"; 
     }
 
-
-    @GetMapping("/cadastrarUsuario")
-    public String cadastrarUsuarioForm(Model model) {
-        model.addAttribute("pessoa", new Pessoa());
-        return "cadastrar";
-    }
-
-    @PostMapping("/cadastrarUsuario")
-    public String salvar(@ModelAttribute Pessoa pessoa) {
-        repository.save(pessoa);
+    
+    @PostMapping("/cadastrarPessoaDesaparecida")
+    public String salvar(@ModelAttribute("usuario") Pessoa usuario) {
+        repository.save(usuario);
         return "redirect:/listarUsuarios";
     }
 
+    
     @GetMapping("/listarUsuarios")
     public String listarUsuarios(Model model) {
         model.addAttribute("usuarios", repository.findAll());
-        return "listar";
+        return "listarUsuarios";
+    }
+
+  
+    @GetMapping("/cadastrarUsuario")
+    public String cadastrarUsuarioForm() {
+        return "cadastrarUsuario";
     }
 }
